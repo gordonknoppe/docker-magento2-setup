@@ -22,7 +22,8 @@ php ${DOCUMENT_ROOT}/bin/magento setup:install \
   --admin-lastname=$M2SETUP_ADMIN_LASTNAME \
   --admin-email=$M2SETUP_ADMIN_EMAIL \
   --admin-user=$M2SETUP_ADMIN_USER \
-  --admin-password=$M2SETUP_ADMIN_PASSWORD
+  --admin-password=$M2SETUP_ADMIN_PASSWORD \
+  --session-save=db
 
 echo "Running full reindex...";
 php ${DOCUMENT_ROOT}/bin/magento indexer:reindex
