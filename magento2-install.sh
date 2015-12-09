@@ -18,6 +18,7 @@ php ${DOCUMENT_ROOT}/bin/magento setup:install \
   --db-user=$M2SETUP_DB_USER \
   --db-password=$M2SETUP_DB_PASSWORD \
   --base-url=$M2SETUP_BASE_URL \
+  --backend-frontname=$M2SETUP_BACKEND_FRONTNAME \
   --admin-firstname=$M2SETUP_ADMIN_FIRSTNAME \
   --admin-lastname=$M2SETUP_ADMIN_LASTNAME \
   --admin-email=$M2SETUP_ADMIN_EMAIL \
