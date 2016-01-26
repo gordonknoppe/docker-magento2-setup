@@ -29,4 +29,7 @@ php ${DOCUMENT_ROOT}/bin/magento setup:install \
 echo "Running full reindex...";
 php ${DOCUMENT_ROOT}/bin/magento indexer:reindex
 
+echo "Flushing cache...";
+php ${DOCUMENT_ROOT}/bin/magento cache:flush
+
 echo "The setup script has completed execution."
