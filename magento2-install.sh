@@ -3,7 +3,8 @@ echo "Sleeping 10 to allow MySQL to boot up..."
 sleep 10
 echo "Initializing setup..."
 
-DOCUMENT_ROOT=/var/www/html
+DOCUMENT_ROOT=/var/www/html;
+MAGENTO="php -d memory_limit=1024M ${DOCUMENT_ROOT}/bin/magento";
 
 if [ -f ${DOCUMENT_ROOT}/app/etc/config.php ] || [ -f ${DOCUMENT_ROOT}/app/etc/env.php ]; 
 then
@@ -12,7 +13,7 @@ then
 fi
 
 echo "Running Magento 2 setup script...";
-php ${DOCUMENT_ROOT}/bin/magento setup:install \
+${MAGENTO} setup:install \
   --db-host=$M2SETUP_DB_HOST \
   --db-name=$M2SETUP_DB_NAME \
   --db-user=$M2SETUP_DB_USER \
@@ -27,9 +28,9 @@ php ${DOCUMENT_ROOT}/bin/magento setup:install \
   --session-save=db
 
 echo "Running full reindex...";
-php ${DOCUMENT_ROOT}/bin/magento indexer:reindex
+${MAGENTO} indexer:reindex
 
 echo "Flushing cache...";
-php ${DOCUMENT_ROOT}/bin/magento cache:flush
+${MAGENTO} cache:flush
 
 echo "The setup script has completed execution."
