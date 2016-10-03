@@ -8,8 +8,8 @@ MAGENTO="php -d memory_limit=1024M ${DOCUMENT_ROOT}/bin/magento";
 
 if [ -f ${DOCUMENT_ROOT}/app/etc/env.php ]; 
 then
-    echo "Already installed? Either app/etc/config.php or app/etc/env.php exist running setup:upgrade";
-    echo "Remove both files to run setup:install...";
+    echo "Already installed? app/etc/env.php exists";
+    echo "Remove app/etc/env.php to trigger setup:install...";
 else
     echo "Running Magento 2 setup:install...";
     ${MAGENTO} setup:install \
@@ -27,10 +27,7 @@ else
       --session-save=db
 fi 
 
-echo "Running full reindex...";
-${MAGENTO} indexer:reindex
-
 echo "Flushing cache...";
 ${MAGENTO} cache:flush
 
-echo "The setup script has completed execution."
+echo "Magento install script has completed execution."

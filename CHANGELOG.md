@@ -1,11 +1,5 @@
-# Changes in the magento2-setup docker image
+## 1.0.0 (October 3, 2016) 
 
-All notable changes are documented in this file using the [Keep a CHANGELOG](http://keepachangelog.com/) principles.
+IMPROVEMENTS
 
-## [1.0.0] - 2016-04-07
-
-### Added
-
-* Magento 2 command-line installation
-* Re-index after installation
-* Clear cache after installation
+- 1.0.0 version of Magento 2 install script
